@@ -14,8 +14,9 @@ route.get("/", (req, res) => {
   for(var i = 0; i < 4; i++){
     distributedCardData += "Player #"+(+i+1)+" Cards : "
     for(var j = 0; j < 8; j++){
-      distributedCardData += CardType[distributedCards[i][j].CardType]
-      +"_"+JSON.stringify(distributedCards[i][j].Value) + ","
+      var color: string = distributedCards[i][j].CardType == CardType.HEART || distributedCards[i][j].CardType == CardType.DIAMOND ? "red" : "black"
+      distributedCardData += "<p style='color:"+color+"; display: inline;'>"+ CardType[distributedCards[i][j].CardType]
+      +"</p>_"+JSON.stringify(distributedCards[i][j].Value) + ","
     }
     distributedCardData +="<br/>"
   }

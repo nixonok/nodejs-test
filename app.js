@@ -13,8 +13,9 @@ route.get("/", function (req, res) {
     for (var i = 0; i < 4; i++) {
         distributedCardData += "Player #" + (+i + 1) + " Cards : ";
         for (var j = 0; j < 8; j++) {
-            distributedCardData += icard_1.CardType[distributedCards[i][j].CardType]
-                + "_" + JSON.stringify(distributedCards[i][j].Value) + ",";
+            var color = distributedCards[i][j].CardType == icard_1.CardType.HEART || distributedCards[i][j].CardType == icard_1.CardType.DIAMOND ? "red" : "black";
+            distributedCardData += "<p style='color:" + color + "; display: inline;'>" + icard_1.CardType[distributedCards[i][j].CardType]
+                + "</p>_" + JSON.stringify(distributedCards[i][j].Value) + ",";
         }
         distributedCardData += "<br/>";
     }
