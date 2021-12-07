@@ -22,7 +22,7 @@ route.get("/", (req, res) => {
   }
   
   distributedCardData +="}"
-  res.send(JSON.stringify(distributedCardData))
+  res.send(distributedCardData)
   
 });
 
